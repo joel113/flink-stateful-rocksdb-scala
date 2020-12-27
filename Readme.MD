@@ -7,6 +7,10 @@ variable based on the passed data.
 
 The example is based on the Apache Flink Data Stream API, a keyed data stream implementation and keyed state.
 
+The following video shows the execution of the example:
+
+https://youtu.be/87q4Aw-o9so
+
 Please consider reading following resources for more information.
 
 ## Apache Flink Documentation
