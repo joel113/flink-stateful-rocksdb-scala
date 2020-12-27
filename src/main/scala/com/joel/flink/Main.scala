@@ -6,6 +6,7 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.api.common.state.{ValueState, ValueStateDescriptor}
 import org.apache.flink.api.java.functions.KeySelector
 import org.apache.flink.configuration.Configuration
+import org.apache.flink.contrib.streaming.state.RocksDBStateBackend
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer
 import org.apache.flink.util.Collector
@@ -24,6 +25,7 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
+    env.setStateBackend(new RocksDBStateBackend("file:///Users/joel/flink/checkpoints"))
 
     val kafkaConsumer = new FlinkKafkaConsumer[String]("vehicles", new SimpleStringSchema(), getKafkaConsumerProperties("flink"))
 
